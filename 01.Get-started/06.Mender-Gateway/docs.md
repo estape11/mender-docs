@@ -18,7 +18,10 @@ local device to connect to the Mender Server directly.
 
 ## Prerequisites
 
-To follow this tutorial you will need to
+There are two options to install and use Mender Gateway:
+
+- You can promote a device to a gateway
+We provide an example with a Raspberry Pi. You can follow this tutorial to 
 [prepare a Raspberry Pi device](../01.Preparation/01.Prepare-a-Raspberry-Pi-device/)
 and connect it to hosted Mender or your Mender Server.
 
@@ -26,7 +29,13 @@ This tutorial assumes that your device is running the Raspbian OS. If you are
 running a Yocto distribution the commands to install the Mender Gateway will
 fail as they won't be able to recognize your distribution.
 
-You will also need Docker installed on your workstation to start the virtual device
+- Use a standalone server as a gateway
+
+This tutorial assumes that your device is running a Debian Based OS.
+
+!!! A Dockerize option is available but it is in beta stage (not ready for production enviroment)
+
+Finally, will also need Docker installed on your workstation to start the virtual device
 you will connect to the Mender Gateway.
 
 
@@ -96,6 +105,7 @@ Please refer to the [Mender Gateway's configuration file](../../08.Server-integr
 documentation for detailed information about the various settings.
 
 ## Systems
+! This feature is on beta stage and not fully tested for production enviroments.
 
 A System is a group of devices belonging to the same product or logical entity connected to a Mender Gateway instance. Devices in a System usually require coordination during the update process. To define a System, each device must report to the Mender Server a special inventory attribute named `mender_gateway_system_id`, containing a unique identifier for the given system.
 

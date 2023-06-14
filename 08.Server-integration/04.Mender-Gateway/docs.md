@@ -42,6 +42,8 @@ See the [Mender Gateway User Guide](../../01.Get-started/06.Mender-Gateway/docs.
 for a reference setup of Mender Gateway as an Artifact Proxy.
 
 ## Systems
+! This feature is on beta stage and not fully tested for production enviroments.
+
 A System is a group of devices belonging to the same product or logical entity
 connected to a Mender Gateway instance. Devices in a System usually require
 coordination during the update process. To define a System, each device must
