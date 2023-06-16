@@ -188,10 +188,9 @@ will download and run the specified images from e.g
 
 ## Read more
 
-There are several options for deploying containerized updates:
+There is an alternative option for deploying containerized updates:
 
 * *[Docker Compose Update Module](../../06.Artifact-creation/03.Containerized-application-updates)* provides an interface for deploying container workloads managed by Docker Compose.
-* *[Kubernetes Update Module](https://hub.mender.io/t/kubernetes/1939?target=_blank)* allows you to deploy Kubernetes manifests to a local kubernetes cluster.
 
 You can explore other types of updates available by extending the Mender client
 in the
