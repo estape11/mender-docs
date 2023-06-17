@@ -113,7 +113,8 @@ EOF
 
 To generate the artifact, we need to know the target platform of the devices we
 want to deploy to. In the following example, we will assume the platform we are
-deploying to is `linux/arm/v7`.
+deploying to is `linux/arm/v7` (`os/arch/variant`). You can check more details regarding
+this notation in [Multi-platform images](https://docs.docker.com/build/building/multi-platform/) and [Architectures other than amd64?](https://github.com/docker-library/official-images#architectures-other-than-amd64).
 ```bash
 ARTIFACT_NAME="myfirstcomposition"
 DEVICE_TYPE="raspberrypi4"
@@ -153,8 +154,10 @@ will echo the request.
 To this end, we will leverage the Troubleshoot add-on and start a port-forward
 session using the [mender-cli](TODO).
 ```bash
-mender-cli port-forward 1bfcf943-4378-4a4f-bc88-0b4c86cdcc74 8080:8080
+mender-cli port-forward <device_id> 8080:8080
 ```
+!!!!! Note that `device_id` should be replaced with the ID of the device (i.e `1bfcf943-4378-4a4f-bc88-0b4c86cdcc74`).
+
 ```bash
 curl http://localhost:8080/whoami
 ```
