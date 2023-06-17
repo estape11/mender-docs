@@ -29,7 +29,7 @@ dependencies are installed on the device:
    * Only required if using binary deltas
 
 [ui-accordion independent=true open=none]
-[ui-accordion-item title="Vefify device dependencies"]
+[ui-accordion-item title="Verify device dependencies (click to expand)"]
 
 > To quickly verify the required dependencies are installed on your device, run
 > the following:
