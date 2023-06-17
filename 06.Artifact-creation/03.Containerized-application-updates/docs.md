@@ -5,10 +5,10 @@ taxonomy:
     label: tutorial
 ---
 
-Mender maintains and support update modules for managing containerized workloads
+Mender maintains and support Update Modules for managing containerized workloads
 on the edge devices. *Application Update Module* (App Update Module), being the regular [Mender Update Module](../08.Create-a-custom-Update-Module),
 contains and implements all the logic behind the deployment of any installable
-application to a device. The *Application Update Module* extends the update module API
+application to a device. The *Application Update Module* extends the Update Module API
 to easily support different kinds of container orchestrator. Currently the module
 supports Docker Compose orchestrator.
 
@@ -44,7 +44,7 @@ dependencies are installed on the device:
 [/ui-accordion]
 
 
-To install the Docker Compose update module, run the following commands on your
+To install the Docker Compose Update Module, run the following commands on your
 device:
 <!--FIXME(AUTOVERSION): "app-update-module/%/"/app-update-module-->
 ```bash
@@ -66,7 +66,7 @@ wget https://raw.githubusercontent.com/mendersoftware/app-update-module/master/c
 ```
 
 !!! Inspect the configuration files on your device `/etc/mender/mender-app.conf` and
-!!! `/etc/mender/mender-app-docker-compose.conf` to customize the update module.
+!!! `/etc/mender/mender-app-docker-compose.conf` to customize the Update Module.
 
 #### Prepare the deployment
 Before you can deploy Docker compositions to your devices, you need to install
