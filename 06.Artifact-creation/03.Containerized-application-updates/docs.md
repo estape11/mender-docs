@@ -6,9 +6,13 @@ taxonomy:
 ---
 
 Mender maintains and support update modules for managing containerized workloads
-on the edge devices. The Application Update Module extends the update module API
+on the edge devices. *Application Update Module* (App Update Module), being the regular [Mender Update Module](../08.Create-a-custom-Update-Module),
+contains and implements all the logic behind the deployment of any installable
+application to a device. The *Application Update Module* extends the update module API
 to easily support different kinds of container orchestrator. Currently the module
 supports Docker Compose orchestrator.
+
+<!-- Definition from App Update Module from https://gitlab.com/Northern.tech/Mender/app-update-module/-/blob/master/docs/README-submodule-api.md#applications-updates -->
 
 ## Docker Compose
 
