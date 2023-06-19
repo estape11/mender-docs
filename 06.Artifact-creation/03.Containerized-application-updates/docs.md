@@ -5,10 +5,14 @@ taxonomy:
     label: tutorial
 ---
 
-Mender maintains and support update modules for managing containerized workloads
-on the edge devices. The Application Update Module extends the update module API
-to easily support different kinds of container orchestrator. Currently the module
+Mender maintains and support Update Modules for managing containerized workloads
+on the edge devices. *Application Update Module*, being the regular [Mender Update Module](../08.Create-a-custom-Update-Module),
+contains and implements all the logic behind the deployment of any containerized
+application to a device. The *Application Update Module* extends the Update Module API
+to easily support different kinds of container orchestrators. Currently the module
 supports Docker Compose orchestrator.
+
+<!-- Definition from App Update Module from https://gitlab.com/Northern.tech/Mender/app-update-module/-/blob/master/docs/README-submodule-api.md#applications-updates -->
 
 ## Docker Compose
 
@@ -25,7 +29,7 @@ dependencies are installed on the device:
    * Only required if using binary deltas
 
 [ui-accordion independent=true open=none]
-[ui-accordion-item title="Vefify device dependencies"]
+[ui-accordion-item title="Verify device dependencies (click to expand)"]
 
 > To quickly verify the required dependencies are installed on your device, run
 > the following:
@@ -40,7 +44,7 @@ dependencies are installed on the device:
 [/ui-accordion]
 
 
-To install the Docker Compose update module, run the following commands on your
+To install the Docker Compose Update Module, run the following commands on your
 device:
 <!--FIXME(AUTOVERSION): "app-update-module/%/"/app-update-module-->
 ```bash
@@ -62,7 +66,7 @@ wget https://raw.githubusercontent.com/mendersoftware/app-update-module/master/c
 ```
 
 !!! Inspect the configuration files on your device `/etc/mender/mender-app.conf` and
-!!! `/etc/mender/mender-app-docker-compose.conf` to customize the update module.
+!!! `/etc/mender/mender-app-docker-compose.conf` to customize the Update Module.
 
 #### Prepare the deployment
 Before you can deploy Docker compositions to your devices, you need to install
@@ -109,7 +113,8 @@ EOF
 
 To generate the artifact, we need to know the target platform of the devices we
 want to deploy to. In the following example, we will assume the platform we are
-deploying to is `linux/arm/v7`.
+deploying to is `linux/arm/v7` (`os/arch/variant`). You can check more details regarding
+this notation in [Multi-platform images](https://docs.docker.com/build/building/multi-platform/) and [Architectures other than amd64](https://github.com/docker-library/official-images#architectures-other-than-amd64).
 ```bash
 ARTIFACT_NAME="myfirstcomposition"
 DEVICE_TYPE="raspberrypi4"
@@ -149,8 +154,10 @@ will echo the request.
 To this end, we will leverage the Troubleshoot add-on and start a port-forward
 session using the [mender-cli](TODO).
 ```bash
-mender-cli port-forward 1bfcf943-4378-4a4f-bc88-0b4c86cdcc74 8080:8080
+mender-cli port-forward <device_id> 8080:8080
 ```
+!!!!! Note that `device_id` should be replaced with the ID of the device (i.e `1bfcf943-4378-4a4f-bc88-0b4c86cdcc74`).
+
 ```bash
 curl http://localhost:8080/whoami
 ```
