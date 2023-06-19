@@ -19,7 +19,7 @@ supports Docker Compose orchestrator.
 In this section we will show you how to use the Docker Compose Application
 Update Module for deploying a simple Docker composition on your device.
 
-#### Prepare the device
+### Prepare the device
 Before installing the Update Module, you need to ensure that the following
 dependencies are installed on the device:
  * [Mender client](../../03.Client-installation/02.Install-with-Debian-package) (version >= 3.0)
@@ -28,25 +28,19 @@ dependencies are installed on the device:
  * [xdelta3](https://github.com/jmacd/xdelta)
    * Only required if using binary deltas
 
-[ui-accordion independent=true open=none]
-[ui-accordion-item title="Verify device dependencies (click to expand)"]
-
-> To quickly verify the required dependencies are installed on your device, run
-> the following:
->
-> ```bash
-> mender --version
-> docker --version
-> docker compose version
-> ```
-
-[/ui-accordion-item]
-[/ui-accordion]
+!!! To quickly verify the required dependencies are installed on your device, run
+!!! the following:
+!!! ```bash
+!!! mender --version
+!!! docker --version
+!!! docker compose version
+!!! ```
 
 
 To install the Docker Compose Update Module, run the following commands on your
 device:
-<!--FIXME(AUTOVERSION): "app-update-module/%/"/app-update-module-->
+
+<!--AUTOVERSION: "app-update-module/%/"/ignore-->
 ```bash
 # Install Application Update Module
 mkdir -p /usr/share/mender/modules/v3
@@ -68,11 +62,12 @@ wget https://raw.githubusercontent.com/mendersoftware/app-update-module/master/c
 !!! Inspect the configuration files on your device `/etc/mender/mender-app.conf` and
 !!! `/etc/mender/mender-app-docker-compose.conf` to customize the Update Module.
 
-#### Prepare the deployment
-Before you can deploy Docker compositions to your devices, you need to install
-the Application Update Artifact Generator. Make sure you have
-[`mender-artifact`](../../10.Downloads#mender-artifact) installed on your system and then install the
-Application Update Artifact Generator:
+### Prepare the deployment
+Once your device is ready, return to your workstation and install the
+Application Update Artifact Generator. First, make sure that you have
+[mender-artifact](../../10.Downloads#mender-artifact) (version >= 3.0) installed
+on your workstation, then install the Application Update Artifact Generator:
+<!--AUTOVERSION: "app-update-module/%/"/ignore-->
 ```bash
 BINDIR=$HOME/bin
 mkdir -p $BINDIR
@@ -152,7 +147,7 @@ Once deployed, the device will start serving a simple server on port 8080. You
 can test the application by sending a request to path `/whoami` and the server
 will echo the request.
 To this end, we will leverage the Troubleshoot add-on and start a port-forward
-session using the [mender-cli](TODO).
+session using the [mender-cli](../../10.Downloads#mender-cli).
 ```bash
 mender-cli port-forward <device_id> 8080:8080
 ```
@@ -168,7 +163,6 @@ curl http://localhost:8080/whoami
 > RemoteAddr: 172.19.0.2:58470
 > GET /whoami HTTP/1.1
 > Host: localhost:8080
-> User-Agent: curl/8.1.2
 > Accept: */*
 > Accept-Encoding: gzip
 > X-Forwarded-For: 172.19.0.1
