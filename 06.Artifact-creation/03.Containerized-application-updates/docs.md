@@ -6,10 +6,10 @@ taxonomy:
 ---
 
 Mender maintains and support Update Modules for managing containerized workloads
-on the edge devices. *Application Update Module* (App Update Module), being the regular [Mender Update Module](../08.Create-a-custom-Update-Module),
-contains and implements all the logic behind the deployment of any installable
+on the edge devices. *Application Update Module*, being the regular [Mender Update Module](../08.Create-a-custom-Update-Module),
+contains and implements all the logic behind the deployment of any containerized
 application to a device. The *Application Update Module* extends the Update Module API
-to easily support different kinds of container orchestrator. Currently the module
+to easily support different kinds of container orchestrators. Currently the module
 supports Docker Compose orchestrator.
 
 <!-- Definition from App Update Module from https://gitlab.com/Northern.tech/Mender/app-update-module/-/blob/master/docs/README-submodule-api.md#applications-updates -->
@@ -114,7 +114,7 @@ EOF
 To generate the artifact, we need to know the target platform of the devices we
 want to deploy to. In the following example, we will assume the platform we are
 deploying to is `linux/arm/v7` (`os/arch/variant`). You can check more details regarding
-this notation in [Multi-platform images](https://docs.docker.com/build/building/multi-platform/) and [Architectures other than amd64?](https://github.com/docker-library/official-images#architectures-other-than-amd64).
+this notation in [Multi-platform images](https://docs.docker.com/build/building/multi-platform/) and [Architectures other than amd64](https://github.com/docker-library/official-images#architectures-other-than-amd64).
 ```bash
 ARTIFACT_NAME="myfirstcomposition"
 DEVICE_TYPE="raspberrypi4"
