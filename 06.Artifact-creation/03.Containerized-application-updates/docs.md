@@ -12,8 +12,6 @@ application to a device. The *Application Update Module* extends the Update Modu
 to easily support different kinds of container orchestrators. Currently the module
 supports Docker Compose orchestrator.
 
-<!-- Definition from App Update Module from https://gitlab.com/Northern.tech/Mender/app-update-module/-/blob/master/docs/README-submodule-api.md#applications-updates -->
-
 ## Docker Compose
 
 In this section we will show you how to use the Docker Compose Application
