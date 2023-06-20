@@ -19,14 +19,20 @@ supports Docker Compose orchestrator.
 In this section we will show you how to use the Docker Compose Application
 Update Module for deploying a simple Docker composition on your device.
 
-### Prepare the device
-Before installing the Update Module, you need to ensure that the following
+### Prerequesites
+
+To get started using the Docker Compose Update Module, we need to prepare the
+target devices for deployment and as the workstation for creating the
+deployment. We will start with the devices before returning to the workstation.
+
+##### Prepare the devices
+Before installing the Update Module on the **target device**, you need to ensure that the following
 dependencies are installed on the device:
  * [Mender client](../../03.Client-installation/02.Install-with-Debian-package) (version >= 3.0)
  * [Docker Engine](https://docs.docker.com/engine/install/?target=_blank)
  * [Docker Compose](https://docs.docker.com/compose/install/?target=_blank) (version >= 2.0)
  * [xdelta3](https://github.com/jmacd/xdelta)
-   * Only required if using binary deltas
+   * *Only required if using binary deltas*
 
 !!! To quickly verify the required dependencies are installed on your device, run
 !!! the following:
@@ -34,12 +40,11 @@ dependencies are installed on the device:
 !!! mender --version
 !!! docker --version
 !!! docker compose version
+!!! xdelta3 -V
 !!! ```
 
-
 To install the Docker Compose Update Module, run the following commands on your
-device:
-
+devices:
 <!--AUTOVERSION: "app-update-module/%/"/ignore-->
 ```bash
 # Install Application Update Module
@@ -62,8 +67,8 @@ wget https://raw.githubusercontent.com/mendersoftware/app-update-module/master/c
 !!! Inspect the configuration files on your device `/etc/mender/mender-app.conf` and
 !!! `/etc/mender/mender-app-docker-compose.conf` to customize the Update Module.
 
-### Prepare the deployment
-Once your device is ready, return to your workstation and install the
+##### Prepare the workstation
+Once your devices are ready, return to your workstation and install the
 Application Update Artifact Generator. First, make sure that you have
 [mender-artifact](../../10.Downloads#mender-artifact) (version >= 3.0) installed
 on your workstation, then install the Application Update Artifact Generator:
@@ -77,11 +82,15 @@ wget https://raw.githubusercontent.com/mendersoftware/app-update-module/master/g
 chmod +x $BINDIR/app-gen
 ```
 
-#### Create the Mender artifact
+### Prepare the deployment
 
-As an example, we will use a simple multi-container composition with a Traefik
-gateway and a simple server. Begin by creating the manifest and saving it in a
-separate directory:
+In this tutorial, we will make a simple multi-container composition with a
+Traefik gateway and a simple backend service `whoami`. First we will create a
+deployment with a new Docker composition, then we will demonstrate how to
+upgrade the images used in the composition using binary delta to save size and
+data transfer bandwidth for the resulting deployment.
+
+Begin by creating the manifest and saving it in a separate directory:
 ```bash
 mkdir -p manifests/v1
 cat <<EOF > manifests/v1/docker-compose.yaml
