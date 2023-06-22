@@ -30,7 +30,6 @@ dependencies are installed on the device:
  * [Docker Engine](https://docs.docker.com/engine/install/?target=_blank)
  * [Docker Compose](https://docs.docker.com/compose/install/?target=_blank) (version >= 2.0)
  * [xdelta3](https://github.com/jmacd/xdelta)
-   * *Only required if using binary deltas*
 
 !!! To quickly verify the required dependencies are installed on your device, run
 !!! the following:
