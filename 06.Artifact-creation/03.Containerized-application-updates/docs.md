@@ -62,9 +62,6 @@ wget https://raw.githubusercontent.com/mendersoftware/app-update-module/master/c
         -O /etc/mender/mender-app-docker-compose.conf
 ```
 
-!!! Inspect the configuration files on your device `/etc/mender/mender-app.conf` and
-!!! `/etc/mender/mender-app-docker-compose.conf` to customize the Update Module.
-
 ##### Prepare the workstation
 Once your devices are ready, return to your workstation and install the
 Application Update Artifact Generator. First, make sure that you have
